@@ -1,7 +1,7 @@
 # Group_1_Project
 This repository contains our Final Project for Intro to Python course DAB111-24W. 
 
-The codes in this repository stores data into a database using sqlite3 package and will be served in a website.
+The codes in this repository stores data into a database using sqlite3 package and will be served in a website with the use of flask.
 In this project, we will be serving a Customer Data via a website.
 
 The database.ipynb file contains the creation of database
