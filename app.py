@@ -8,8 +8,8 @@ import pathlib
 base_path = pathlib.Path(r'C:\Users\salim\OneDrive\Desktop\Python\DAB111\.venv')
 db_name = "Customer.db"
 db_path = base_path / db_name
-# con = sqlite3.connect(db_path)
-# cursor = con.cursor()
+con = sqlite3.connect(db_path)
+cursor = con.cursor()
 print(db_path)
 
 
@@ -25,7 +25,11 @@ def about():
 
 @app.route("/data")
 def data():
-    return render_template("data_table.html", students=students)
+    con = sqlite3.connect(db_path)
+    cursor = con.cursor()
+    customers = cursor.execute("SELECT * FROM customers LIMIT 20").fetchall()
+    con.close()
+    return render_template("data_table.html", customers=customers)
 
 if __name__=="__main__":
     app.run(debug=True)

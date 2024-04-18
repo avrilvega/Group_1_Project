@@ -1,7 +1,50 @@
-customers
-{% for c in customers%} {% endfor %}
-RowNumber  CustomerId	Surname	    CreditScore	 Geography     Gender       Age      Tenure	  Balance
-{{ s[0] }} {{ s[1] }}   {{ s[2] }}  {{ s[3] }}  {{ s[4] }}   {{ s[5] }}  {{ s[6] }}  {{ s[7] }}  {{ s[8] }}
-NumOfProducts	HasCrCard     IsActiveMember	EstimatedSalary	 Exited
-{{ s[9] }}     {{ s[10] }}	{{ s[11] }}	 {{ s[12] }}    {{ s[13] }}
+<!DOCTYPE html>
+<head>
+    <title>Customer Data</title>
+</head>
+<body>
+    <h1>Customer Data</h1>
 
+    <table>
+        <thead>
+            <tr>
+                <th>RowNumber</th>
+                <th>CustomerId</th>
+                <th>Surname</th>
+                <th>CreditScore</th>
+                <th>Geography</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th>Tenure</th>
+                <th>Balance</th>
+                <th>NumOfProducts</th>
+                <th>HasCrCard</th>
+                <th>IsActiveMember</th>
+                <th>EstimatedSalary</th>
+                <th>Exited</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in customers %}
+            <tr>
+                <td>{{ c[0] }}</td> 
+                <td>{{ c[1] }}</td>     
+                <td>{{ c[2] }}</td>      
+                <td>{{ c[3] }}</td>    
+                <td>{{ c[4] }}</td>      
+                <td>{{ c[5] }}</td>    
+                <td>{{ c[6] }}</td>    
+                <td>{{ c[7] }}</td>      
+                <td>{{ c[8] }}</td>      
+                <td>{{ c[9] }}</td>     
+                <td>{{ c[10] }}</td>     
+                <td>{{ c[11] }}</td>     
+                <td>{{ c[12] }}</td>   
+                <td>{{ c[13] }}</td>    
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
