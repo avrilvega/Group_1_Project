@@ -5,11 +5,9 @@ from flask import Flask, render_template
 import pathlib 
 
 
-base_path = pathlib.Path(r'C:\Users\salim\OneDrive\Desktop\Python\DAB111\.venv')
-db_name = "Customer.db"
+base_path = pathlib.Path(r'C:\Users\salim\OneDrive\Desktop\Python\DAB111\GROUP_1_PROJECT')
+db_name = "Customers.db"
 db_path = base_path / db_name
-con = sqlite3.connect(db_path)
-cursor = con.cursor()
 print(db_path)
 
 
@@ -27,7 +25,7 @@ def about():
 def data():
     con = sqlite3.connect(db_path)
     cursor = con.cursor()
-    customers = cursor.execute("SELECT * FROM customers LIMIT 20").fetchall()
+    customers = cursor.execute("SELECT * FROM customers LIMIT 10").fetchall()
     con.close()
     return render_template("data_table.html", customers=customers)
 
