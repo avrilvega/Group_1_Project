@@ -21,7 +21,7 @@ def about():
 def data():
     con = sqlite3.connect(db_path)
     cursor = con.cursor()
-    students = cursor.execute("SELECT RowNumber,CustomerId, Surname, CreditScore, Geography, Gender, Age FROM CustomerDetails").fetchall()
+    customers = cursor.execute("SELECT RowNumber,CustomerId, Surname, CreditScore, Geography, Gender, Age FROM CustomerDetails").fetchall()
     con.close()
 
     return render_template("data_table.html", customers=customers)

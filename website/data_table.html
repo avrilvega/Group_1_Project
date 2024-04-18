@@ -9,11 +9,11 @@
     <body>
         <table>
             <thead>
-                <tr><th>First Name</th><th>Last Name</th><th>ID</th></tr>
+                <tr><th>RowNumber</th><th>CustomerID</th><th>Surname</th></tr>CreditScore</th></tr>Geography</th></tr>Gender</th></tr>Age</th></tr>
             </thead>
             <tbody>
-                {% for s in students%}
-            <tr><td>{{ s[0] }}</td><td>{{ s[1] }}</td><td>{{ s[2] }}</td></tr>
+                {% for c in customers%}
+            <tr><td>{{ s[0] }}</td><td>{{ s[1] }}</td><td>{{ s[2] }}</td></tr>{{ s[3] }}</td></tr>{{ s[4] }}</td></tr>{{ s[5] }}</td></tr>{{ s[6] }}</td></tr>
                 {% endfor %}    
             </tbody>
         </table>
