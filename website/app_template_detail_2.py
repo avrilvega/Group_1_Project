@@ -2,7 +2,7 @@ from flask import Flask, render_template
 import sqlite3
 import pathlib 
 
-base_path = pathlib.Path(r'C:\Users\lowela\Downloads\Intro to Python\Final Project')
+base_path = pathlib.Path(r'C:\Users\lowela\Downloads\Intro to Python\Final Project\Group_1_Project')
 db_name = "Customer.db"
 db_path = base_path / db_name
 print(db_path)
@@ -21,7 +21,7 @@ def about():
 def data():
     con = sqlite3.connect(db_path)
     cursor = con.cursor()
-    customers = cursor.execute("SELECT RowNumber,CustomerId, Surname, CreditScore, Geography, Gender, Age FROM CustomerDetails").fetchall()
+    customers = cursor.execute("SELECT * FROM customers").fetchall()
     con.close()
 
     return render_template("data_table.html", customers=customers)

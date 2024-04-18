@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>IMy Website</title>
+        <title>My Website</title>
         
     </head>
     <body>
@@ -9,11 +9,11 @@
     <body>
         <table>
             <thead>
-                <tr><th>RowNumber</th><th>CustomerID</th><th>Surname</th></tr>CreditScore</th></tr>Geography</th></tr>Gender</th></tr>Age</th></tr>
+                <tr><th>RowNumber</th><th>CustomerID</th><th>Surname</th></th>CreditScore</th></th>Geography</th></th>Gender</th></th>Age</th></th>Tenure</th></th>Balance</th></th>NumOfProducts</th></th>HasCrCard</th></th>IsActiveMember</th></th>EstimatedSalary</th></th>Exited</th></tr>
             </thead>
             <tbody>
                 {% for c in customers%}
-            <tr><td>{{ s[0] }}</td><td>{{ s[1] }}</td><td>{{ s[2] }}</td></tr>{{ s[3] }}</td></tr>{{ s[4] }}</td></tr>{{ s[5] }}</td></tr>{{ s[6] }}</td></tr>
+            <tr><td>{{ s[0] }}</td><td>{{ s[1] }}</td><td>{{ s[2] }}</td><td>{{ s[3] }}</td><td>{{ s[4] }}</td><td>{{ s[5] }}</td><td>{{ s[6] }}</td></tr>
                 {% endfor %}    
             </tbody>
         </table>
