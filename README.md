@@ -15,9 +15,9 @@ In this project, our goal is to serve Customer Data via a website. To accomplish
 ## How to Use
 To get started with our project, follow these steps:
 
-Run database.ipynb to create the necessary database.
-Execute app.py to launch the Flask server.
-Visit the website to explore the Customer Data and learn more about the dataset.
+* Run database.ipynb to create the necessary database.
+* Execute app.py to launch the Flask server.
+* Visit the website to explore the Customer Data and learn more about the dataset.
 
 ## Contributors
 Hamideh Salimi, Alexane Vega, Janvi Patel
