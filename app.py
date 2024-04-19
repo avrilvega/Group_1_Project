@@ -20,7 +20,7 @@ def data():
     con = sqlite3.connect("Customers.db")
     cursor = con.cursor()
 
-    customers = cursor.execute(" name FROM sqlite_master WHERE type='table' AND name ='customers'")
+    customers = cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name ='customers'")
     table = cursor.fetchone()
 
     if not table:
