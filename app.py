@@ -3,7 +3,13 @@ import sqlite3
 import pandas as pd
 from flask import Flask, render_template
 import pathlib 
-import csv
+
+
+base_path = pathlib.Path(r'C:\Users\salim\OneDrive\Desktop\Python\DAB111\GROUP_1_PROJECT')
+db_name = "Customers.db"
+db_path = base_path / db_name
+print(db_path)
+
 
 app = Flask(__name__)
 
@@ -17,47 +23,11 @@ def about():
 
 @app.route("/data")
 def data():
-    con = sqlite3.connect("Customers.db")
+    con = sqlite3.connect(db_path)
     cursor = con.cursor()
-
-    customers = cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name ='customers'")
-    table = cursor.fetchone()
-
-    if not table:
-        create_table = """CREATE TABLE IF NOT EXISTS customers (
-                RowNumber INTEGER,
-                CustomerId INTEGER PRIMARY KEY,
-                Surname TEXT,
-                CreditScore TEXT,
-                Geography VARCHAR(50),
-                Gender VARCHAR(10),
-                Age INTEGER,
-                Tenure INTEGER,
-                Balance REAL,
-                NumOfProducts INTEGER,
-                HasCrCard INTEGER,
-                IsActiveMember INTEGER,
-                EstimatedSalary REAL,
-                Exited INTEGER
-            ); """
-        
-        cursor.execute(create_table)
-
-        with open("Churn_Modelling.csv", newline='') as f:
-            data = csv.reader(f)
-            next(data)  # Skip header row
-            cursor.executemany(
-                "INSERT INTO customers VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                data )
-        
-        con.commit()
-
-        cursor.execute("SELECT * FROM customers LIMIT 10")
-        customers = cursor.fetchall()
-
-        con.close()
-    
-        return render_template("data_table.html", customers=customers)
+    customers = cursor.execute("SELECT * FROM customers LIMIT 10").fetchall()
+    con.close()
+    return render_template("data_table.html", customers=customers)
 
 if __name__=="__main__":
     app.run(debug=True)
