@@ -3,15 +3,15 @@ import sqlite3
 import pandas as pd
 from flask import Flask, render_template
 import pathlib 
-
-
-base_path = pathlib.Path(r'C:\Users\salim\OneDrive\Desktop\Python\DAB111\GROUP_1_PROJECT')
-db_name = "Customers.db"
-db_path = base_path / db_name
-print(db_path)
-
+import os
 
 app = Flask(__name__)
+ 
+
+base_path = pathlib.Path(r'C:\Users\lowela\Downloads\Intro to Python\Final Project\Group_1_Project')
+db_name = "Customer_2.db"
+db_path = base_path / db_name
+
 
 @app.route("/")
 def index():
@@ -25,7 +25,7 @@ def about():
 def data():
     con = sqlite3.connect(db_path)
     cursor = con.cursor()
-    customers = cursor.execute("SELECT * FROM customers LIMIT 10").fetchall()
+    customers = cursor.execute("SELECT * FROM customer LIMIT 10").fetchall()
     con.close()
     return render_template("data_table.html", customers=customers)
 
